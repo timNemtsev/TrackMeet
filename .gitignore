@@ -1,0 +1,4 @@
+.sfdx/
+.forceCode/
+force.json
+sfdx-project.json

@@ -1,0 +1,12 @@
+<aura:component implements="force:lightningQuickAction,flexipage:availableForAllPageTypes">
+
+    <ltng:require scripts="{!join(',',
+    $Resource.momentJS
+    ,$Resource.papaParse
+    )}"/>
+
+    <c:FileUpload_Transactions/>
+    <c:FileUpload_Sleep />
+
+
+</aura:component>

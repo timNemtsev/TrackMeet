@@ -1,0 +1,23 @@
+<aura:component controller="FileUploader">
+ 
+    <aura:attribute name="transactions" type="List"/>
+    <aura:attribute name="numberOfFiles" type="Integer" default="0"/>
+    <aura:attribute name="fileName" type="String" default=""/>
+
+    <lightning:card title="Transactions">
+        <div class="slds-grid slds-p-around_small">
+            <div class="slds-col">
+                <lightning:input aura:id="fileUpload" type="file" label="Upload CSV" name="file" multiple="true" />
+                <lightning:button label="Upload Files" onclick="{!c.uploadFiles}" variant="neutral" class="slds-button_stretch slds-m-top_small"/>
+                <lightning:button label="Create Records" onclick="{!c.createRecords}" variant="brand" class="slds-button_stretch slds-m-top_small"/>
+                
+            </div>
+            <div class="slds-col slds-p-around_small slds-align_absolute-center">
+                    File Name: {!v.fileName}<br/>
+                    Number of Records: {!v.numberOfFiles}<br/>
+            </div>
+        </div>
+        
+    </lightning:card>
+
+</aura:component>

@@ -1,0 +1,43 @@
+<aura:component implements="lightning:utilityItem,force:appHostable,flexipage:availableForAllPageTypes">
+
+    <ltng:require scripts="{!join(','
+        ,$Resource.jquery
+        ,$Resource.ratyJS
+        )}" 
+    
+    afterScriptsLoaded="{!c.doInit}"/> 
+
+    <aura:attribute name="numberOfStars" type="Integer"/>
+
+    <lightning:card variant="narrow" class="slds-card_boundary">
+        <aura:if isTrue="{!v.showSpinner}">
+            <lightning:spinner />
+        </aura:if>
+        <aura:set attribute="title">
+        
+        </aura:set>
+        <aura:set attribute="actions">
+ 
+        </aura:set>
+        
+        <div class=''>
+            <lightning:select name="select1" label="Who is rating for?" class="slds-p-small_around">
+                <option value="">choose one...</option>
+                <option value="Max">Max</option>
+            </lightning:select>
+            <div class='slds-p-top_small slds-align_absolute-center'>
+                <div aura:id="starRating" class="star-rating"></div>
+            </div>
+
+            <div class='slds-p-top_small slds-align_absolute-center'>
+                <lightning:textarea name="input1" label="Notes" />
+            </div>
+
+            <div class='slds-p-top_medium slds-align_absolute-center'>
+                <lightning:button variant="brand" label="Submit Rating" title="Submit"/>
+            </div>
+        </div>
+
+    </lightning:card>
+
+</aura:component>

@@ -1,0 +1,27 @@
+<aura:component controller="FileUploader">
+
+    <lightning:notificationsLibrary aura:id="notifLib"/>
+
+    <aura:attribute name="sleepRecords" type="List"/>
+    <aura:attribute name="numberOfFiles" type="Integer" default="0"/>
+    <aura:attribute name="numberUploaded" type="Integer" default="0"/>
+    
+    <aura:handler name="change" value="{!v.numberUploaded}" action="{!c.checkReady}"/>
+
+
+    <lightning:card title="Sleep">
+        <div class="slds-grid slds-p-around_small">
+            <div class="slds-col">
+                <lightning:input aura:id="fileUpload" type="file" label="Upload JSON" name="file" multiple="true" />
+                <lightning:button label="Upload Files" onclick="{!c.uploadFiles}" variant="neutral" class="slds-button_stretch slds-m-top_small"/>
+                <lightning:button label="Create records" onclick="{!c.createRecords}" variant="brand" class="slds-button_stretch slds-m-top_small" disabled="{! v.numberOfFiles != v.sleepRecords.length}"/>
+                
+            </div>
+            <div class="slds-col slds-p-around_small slds-align_absolute-center">
+                    Number of Files: {!v.numberOfFiles}<br/>
+                    Uploaded: {!v.sleepRecords.length}
+            </div>
+        </div>
+        
+    </lightning:card>
+</aura:component>

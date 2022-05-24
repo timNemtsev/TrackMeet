@@ -1,0 +1,27 @@
+<aura:component controller="TransactionApex" implements="lightning:utilityItem,force:appHostable,flexipage:availableForAllPageTypes">
+
+<aura:attribute name="guys" type="List"/>
+<aura:attribute name="transactions" type="List"/>
+<aura:attribute name="selectedTransaction" type="Object"/>
+
+<aura:attribute name="showSpinner" type="Boolean"/>
+
+<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+<aura:if isTrue="{!v.showSpinner}">
+    <lightning:spinner/>
+</aura:if>
+    <div class="slds-grid">
+        <div class="slds-col">
+                <aura:iteration items="{!v.guys}" var="guy">
+                    <lightning:button label="{!guy.Name}" value="{!guy.Id}" onclick="{!c.setGuy}" class="slds-m-bottom_small slds-button_stretch"/><br/>
+                </aura:iteration>
+                <lightning:button label="SKIP" value="skip" onclick="{!c.setGuy}" class="slds-m-bottom_small slds-button_stretch"/>
+        </div>
+        <div class="slds-col">
+            <strong>Date: </strong>{!v.selectedTransaction.Date__c}<br/>
+            <strong>Amount: </strong>{!v.selectedTransaction.Amount__c}<br/>
+            <strong>Description: </strong>{!v.selectedTransaction.Description__c}<br/>
+        </div>
+    </div>
+</aura:component>	

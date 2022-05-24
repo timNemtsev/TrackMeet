@@ -1,0 +1,5 @@
+<aura:component controller="StatusReporterApex" implements="force:lightningQuickAction,flexipage:availableForAllPageTypes">
+
+    <aura:attribute name="StatusReport" type="Map"/>
+    
+</aura:component>
